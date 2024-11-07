@@ -30,6 +30,11 @@
       "path": "/director_dashboard",
       "page": "director_dashboard",
       "layout": "main"
+    },
+    {
+      "path": "/cuba-123",
+      "page": "cuba-123",
+      "layout": "kosong"
     }
   ]
 }

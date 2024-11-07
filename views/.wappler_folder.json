@@ -26,5 +26,9 @@
   "index.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "cuba-123.ejs": {
+    "layoutPage": "kosong",
+    "description": ""
   }
 }
