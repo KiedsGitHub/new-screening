@@ -30,9 +30,12 @@
       "name": "Development",
       "remoteURL": "http://localhost:3000/",
       "access": "local",
-      "targetType": "wappler"
+      "targetType": "wappler",
+      "databaseConnectionType": "sqlite",
+      "sqliteDbFile": "/db/db_dev.sqlite3"
     }
   ],
   "activeTarget": "Development",
-  "projectType": "web"
+  "projectType": "web",
+  "extensions": []
 }
