@@ -1,0 +1,109 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="director_dashboard" appConnect="local" -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Director Dashboard</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Header Section -->
+        <div class="row bg-primary text-white p-3">
+            <div class="col-md-12">
+                <h2>Director Dashboard</h2>
+                <p class="mb-0">Welcome, Director! Manage approval requests and track candidate status.</p>
+            </div>
+        </div>
+
+        <!-- Approval Requests Container -->
+        <div class="container my-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-secondary text-white">
+                    <h5>Approval Requests</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Table of Approval Requests -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Job Position</th>
+                                <th>Submitted By</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody is="dmx-repeat" dmx-generator="bs4table" dmx-bind:repeat="fetchPendingRequests.data.pendingQuery">
+                            <tr>
+                                <td>REQ12345</td>
+                                <td>Software Engineer</td>
+                                <td>BU Manager</td>
+                                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                <td>
+                                    <button class="btn btn-success btn-sm">Approve</button>
+                                    <button class="btn btn-danger btn-sm">Reject</button>
+                                </td>
+                            </tr>
+                            <!-- Real test case data
+                            <tr>
+                                <td>{{id}}</td>
+                                <td>{{job_position}}</td>
+                                <td>{{submitted_by}}</td>
+                                <td><span class="badge bg-warning text-dark">{{status}}</span></td>
+                                <td>
+                                    <button class="btn btn-success btn-sm" dmx-on:click="approveRequest(id)">Approve</button>
+                                    <button class="btn btn-danger btn-sm" dmx-on:click="rejectRequest(id)">Reject</button>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Candidate Status Container -->
+        <div class="container my-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-secondary text-white">
+                    <h5>Candidate Status</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Table of Candidates -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Candidate ID</th>
+                                <th>Name</th>
+                                <th>Job Position</th>
+                                <th>Interview Status</th>
+                                <th>Approval Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample Row (Dynamic content to be loaded here) -->
+                            <tr>
+                                <td>CAND67890</td>
+                                <td>John Doe</td>
+                                <td>Software Engineer</td>
+                                <td><span class="badge bg-info">Scheduled</span></td>
+                                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                            </tr>
+                            <!-- Additional rows will be dynamically added from the database -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

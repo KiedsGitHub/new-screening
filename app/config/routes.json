@@ -25,6 +25,11 @@
       "path": "/submit_form",
       "page": "submit_form",
       "layout": "main"
+    },
+    {
+      "path": "/director_dashboard",
+      "page": "director_dashboard",
+      "layout": "main"
     }
   ]
 }

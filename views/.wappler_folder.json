@@ -18,5 +18,13 @@
   "submit_form.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "director_dashboard.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "index.ejs": {
+    "layoutPage": "main",
+    "description": ""
   }
 }
