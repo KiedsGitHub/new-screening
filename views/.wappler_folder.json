@@ -1,0 +1,22 @@
+{
+  "login.ejs": {
+    "layoutPage": "kosong",
+    "description": ""
+  },
+  "register.ejs": {
+    "layoutPage": "kosong",
+    "description": ""
+  },
+  "bu_dashboard.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "bu_submit.ejs": {
+    "layoutPage": "kosong",
+    "description": ""
+  },
+  "submit_form.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  }
+}

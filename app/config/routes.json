@@ -1,0 +1,30 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "page": "index",
+      "routeType": "page",
+      "layout": "main"
+    },
+    {
+      "path": "/login",
+      "page": "login",
+      "layout": "kosong"
+    },
+    {
+      "path": "/register",
+      "page": "register",
+      "layout": "kosong"
+    },
+    {
+      "path": "/bu_dashboard",
+      "page": "bu_dashboard",
+      "layout": "main"
+    },
+    {
+      "path": "/submit_form",
+      "page": "submit_form",
+      "layout": "main"
+    }
+  ]
+}

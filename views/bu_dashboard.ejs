@@ -1,0 +1,37 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="bu_dashboard" appConnect="local" components="{dmxBrowser:{}}" -->
+<div is="dmx-browser" id="browser1"></div>
+<meta name="ac:route" content="/bu_dashboard">
+
+<div class="container py-5 h-auto w-auto bg-light">
+    <h2 class="text-center mb-4">Business Unit Dashboard</h2>
+
+    <!-- Statistik Dashboard -->
+    <div class="row mb-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm p-3 mb-4 text-center">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-file-alt fa-2x text-primary mb-3"></i></h5>
+                    <h6>Total Submissions</h6>
+                    <p class="display-6" id="totalSubmissions">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm p-3 mb-4 text-center">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-clock fa-2x text-warning mb-3"></i></h5>
+                    <h6>Pending Reviews</h6>
+                    <p class="display-6" id="pendingReviews">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tambahkan statistik tambahan di sini jika diperlukan -->
+    </div>
+
+    <!-- Butang Tindakan -->
+    <div class="text-center"><button class="btn btn-primary btn-lg px-4" dmx-on:click="browser1.goto('/submit_form',true,'Submision Form')">
+            <i class="fas fa-plus-circle me-2"></i>Submit New Form
+        </button></div>
+</div>

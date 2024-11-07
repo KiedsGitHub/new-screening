@@ -1,0 +1,85 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="submit_form" appConnect="local" components="{dmxNotifications:{}}" -->
+<dmx-notifications id="notifies1"></dmx-notifications>
+<meta name="ac:route" content="/submit_form">
+
+<div class="container py-5">
+    <div class="card shadow p-5 mx-auto" style="max-width: 800px; border-radius: 10px;">
+        <h2 class="text-center mb-4">Employee Requisition Form</h2>
+
+        <form id="submitForm">
+            <div class="row">
+                <!-- Candidate Name -->
+                <div class="col-md-6 mb-3">
+                    <label for="candidateName" class="form-label">Candidate Name</label>
+                    <input type="text" id="candidateName" class="form-control" placeholder="Enter candidate name" required>
+                </div>
+
+                <!-- Position Applied For -->
+                <div class="col-md-6 mb-3">
+                    <label for="position" class="form-label">Position Applied For</label>
+                    <input type="text" id="position" class="form-control" placeholder="Enter position name" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Job Title -->
+                <div class="col-md-6 mb-3">
+                    <label for="jobTitle" class="form-label">Job Title</label>
+                    <input type="text" id="jobTitle" class="form-control" placeholder="Enter job title" required>
+                </div>
+
+                <!-- Department -->
+                <div class="col-md-6 mb-3">
+                    <label for="department" class="form-label">Department</label>
+                    <select id="department" class="form-select" required>
+                        <option value="">Select Department</option>
+                        <option value="HR">Human Resources</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Marketing">Marketing</option>
+                        <!-- Add more departments as needed -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Expected Start Date -->
+                <div class="col-md-6 mb-3">
+                    <label for="startDate" class="form-label">Expected Start Date</label>
+                    <input type="date" id="startDate" class="form-control" required>
+                </div>
+
+                <!-- Salary Range -->
+                <div class="col-md-6 mb-3">
+                    <label for="salaryRange" class="form-label">Salary Range</label>
+                    <input type="text" id="salaryRange" class="form-control" placeholder="e.g., RM3000 - RM4000" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Location -->
+                <div class="col-md-6 mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" id="location" class="form-control" placeholder="e.g., Kuala Lumpur Office" required>
+                </div>
+
+                <!-- Required Skills -->
+                <div class="col-md-6 mb-3">
+                    <label for="skills" class="form-label">Required Skills</label>
+                    <textarea id="skills" class="form-control" rows="2" placeholder="e.g., Project Management, Data Analysis"></textarea>
+                </div>
+            </div>
+
+            <!-- Interview Availability -->
+            <div class="form-group mb-4">
+                <label for="interviewAvailability" class="form-label">Interview Availability</label>
+                <textarea id="interviewAvailability" class="form-control" rows="2" placeholder="e.g., Weekdays, 9 AM - 5 PM"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg w-50" style="border-radius: 25px;" dmx-on:click="notifies1.success('Form Submitted!')">Submit Form</button>
+            </div>
+        </form>
+    </div>
+</div>

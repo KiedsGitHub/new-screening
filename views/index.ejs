@@ -1,0 +1,183 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="index" appConnect="local" components="{dmxBootstrap5Navigation:{}}" -->
+
+<meta name="ac:route" content="/" />
+
+<div class="container-fluid p-0">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a href="#" class="navbar-brand fw-bold fs-3">Screening System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="auth-buttons">
+                    <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Signup</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-white text-center py-5 bg-primary" style="background-image: linear-gradient(to bottom right, #007bff, #6610f2);">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Welcome to Screening System</h1>
+            <p class="lead mt-3 mb-4">An efficient platform to manage candidate screening and streamline the hiring process for Business Units and Managers.</p>
+            <button type="button" class="btn btn-lg btn-light text-primary fw-bold" data-bs-toggle="modal" data-bs-target="#registerModal">Get Started</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">About Screening System</h2>
+            <p class="text-center mx-auto" style="max-width: 700px;">The Screening System is designed to simplify and expedite the candidate screening process, offering dedicated dashboards and tools for Business Units and Managers to manage, track, and review applications effectively.</p>
+            <div class="row mt-4">
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-user-shield fa-2x text-primary mb-3"></i>
+                    <h5>Role-Based Access</h5>
+                    <p>Access tailored for Business Units, Managers, and Candidates.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-user-plus fa-2x text-primary mb-3"></i>
+                    <h5>Easy Candidate Submission</h5>
+                    <p>Quick and easy submission and tracking of candidate information.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-bell fa-2x text-primary mb-3"></i>
+                    <h5>Automated Updates</h5>
+                    <p>Receive automatic status updates and notifications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Screening System. All rights reserved.</p>
+        </div>
+    </footer>
+</div>
+
+<!-- Modal Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <h2 class="text-center mb-4">Welcome Back</h2>
+                <p class="text-center text-muted mb-4">Login to your account</p>
+
+                <!-- Form Login -->
+                <form id="loginForm">
+                    <!-- Pilihan Role dengan Ikon -->
+                    <div class="form-group mb-3">
+                        <label for="role" class="form-label">Role</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                            <select id="role" class="form-select" required>
+                                <option value="BU">Business Unit</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Candidate">Candidate</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Medan Email dengan Ikon -->
+                    <div class="form-group mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <!-- Medan Password dengan Ikon -->
+                    <div class="form-group mb-4">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+
+                    <!-- Butang Login -->
+                    <button type="submit" class="btn btn-primary w-100 py-2">Login</button>
+
+                    <!-- Link ke halaman Register -->
+                    <p class="text-center text-muted mt-3">Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Register here</a>.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Register -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <h2 class="text-center mb-4">Create Your Account</h2>
+                <p class="text-center text-muted mb-4">Please fill in the details to register.</p>
+
+                <!-- Form Register -->
+                <form id="registerForm">
+                    <!-- Pilihan Role dengan ikon -->
+                    <div class="form-group mb-3">
+                        <label for="role" class="form-label">Role</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                            <select id="role" class="form-select" required>
+                                <option value="BU">Business Unit</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Candidate">Candidate</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Nama dengan ikon -->
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                    </div>
+
+                    <!-- Email dengan ikon -->
+                    <div class="form-group mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            <input type="email" id="email1" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <!-- Password dengan ikon -->
+                    <div class="form-group mb-4">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" id="password1" class="form-control" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="password1" class="form-label">Confirm Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" id="password" class="form-control" placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+
+                    <!-- Butang Register -->
+                    <button type="submit" class="btn btn-primary w-100 py-2">Create Account</button>
+
+                    <!-- Link ke Login -->
+                    <p class="text-center text-muted mt-3">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login here</a>.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

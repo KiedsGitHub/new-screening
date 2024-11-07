@@ -1,0 +1,67 @@
+<!-- Wappler include head-page="layouts/kosong" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="register" appConnect="local" -->
+<meta name="ac:route" content="/register">
+
+<!-- Container utama dengan latar belakang ringan -->
+<div class="container d-flex align-items-center justify-content-center min-vh-100 bg-info">
+    <div class="card shadow p-4" style="max-width: 500px; width: 100%; border-radius: 10px;">
+        <h2 class="text-center mb-4">Create Your Account</h2>
+        <p class="text-center text-muted mb-4">Please fill in the details to register.</p>
+
+        <!-- Borang Pendaftaran -->
+        <form id="registerForm">
+
+            <!-- Pilihan Role dengan ikon -->
+            <div class="form-group mb-3">
+                <label for="role" class="form-label">Role</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                    <select id="role" class="form-select" required>
+                        <option value="BU">Business Unit</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Candidate">Candidate</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Nama dengan ikon -->
+            <div class="form-group mb-3">
+                <label for="name" class="form-label">Name</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+            </div>
+
+            <!-- Email dengan ikon -->
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+            </div>
+
+            <!-- Password dengan ikon -->
+            <div class="form-group mb-4">
+                <label for="password" class="form-label">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+            </div>
+            <div class="form-group mb-4">
+                <label for="password1" class="form-label">Confirm Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" id="password1" class="form-control" placeholder="Enter your password" required="">
+                </div>
+            </div>
+
+            <!-- Butang Register -->
+            <button type="submit" class="btn btn-primary w-100 py-2">Create Account</button>
+
+            <!-- Link ke Login -->
+            <p class="text-center text-muted mt-3">Already have an account? <a href="/login">Login here</a>.</p>
+        </form>
+    </div>
+</div>

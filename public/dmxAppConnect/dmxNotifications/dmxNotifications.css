@@ -1,0 +1,69 @@
+.dmx-notifications {
+  position: fixed;
+  inset: var(--dmx-notify-offset-y, 15px) var(--dmx-notify-offset-x, 15px);
+  z-index: 999999;
+  pointer-events: none;
+  display: flex;
+  flex-direction: var(--dmx-notify-direction, column);
+  align-items: var(--dmx-notify-align, flex-end);
+  gap: var(--gap, 10px);
+}
+
+.dmx-notify {
+  pointer-events: auto;
+  animation-fill-mode: forwards;
+  animation-duration: 400ms;
+  background: var(--dmx-notify-background, #eee);
+  color: var(--dmx-notify-color, #333);
+  opacity: var(--dmx-notify-opacity, .8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  border-radius: var(--dmx-notify-radius, .375rem);
+  min-width: 250px;
+  padding: var(--dmx-notify-padding-y, .375rem) var(--dmx-notify-padding-x, .75rem);
+  display: flex;
+  gap: var(--dmx-notify-padding-x, .75rem);
+}
+
+.dmx-notify-body {
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.dmx-notify-icon {
+  display: grid;
+  place-items: center;
+}
+
+.dmx-notify-title {
+  font-weight: bold;
+}
+
+.dmx-notify-message {
+  font-weight: normal;
+}
+
+.dmx-notify-close {
+  display: grid;
+  place-items: center;
+  opacity: .5;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.dmx-notify-close:hover {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1 }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
