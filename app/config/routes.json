@@ -7,11 +7,6 @@
       "layout": "main"
     },
     {
-      "path": "/login",
-      "page": "login",
-      "layout": "kosong"
-    },
-    {
       "path": "/register",
       "page": "register",
       "layout": "kosong"
