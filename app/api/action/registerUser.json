@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "text",
+        "name": "name"
+      },
+      {
+        "type": "text",
+        "name": "email"
+      },
+      {
+        "type": "text",
+        "name": "password"
+      },
+      {
+        "type": "text",
+        "name": "role"
+      }
+    ]
+  },
+  "exec": {
+    "steps": [
+      {
+        "name": "hashPassword",
+        "module": "crypto",
+        "action": "passwordHash",
+        "options": {
+          "text": "{{$_POST.password}}",
+          "password": "{{$_POST.password}}"
+        },
+        "output": true,
+        "outputType": "text"
+      },
+      {
+        "name": "dbInsertUser",
+        "module": "dbupdater",
+        "action": "insert",
+        "options": {
+          "connection": "db",
+          "table": "user",
+          "record": {
+            "name": "{{$_POST.name}}",
+            "email": "{{$_POST.email}}",
+            "password": "{{hashPassword}}",
+            "role": "{{$_POST.roletype}}"
+          },
+          "sql": {
+            "type": "insert",
+            "values": [
+              {
+                "table": "user",
+                "column": "name",
+                "type": "text",
+                "value": "{{$_POST.name}}"
+              },
+              {
+                "table": "user",
+                "column": "email",
+                "type": "text",
+                "value": "{{$_POST.email}}"
+              },
+              {
+                "table": "user",
+                "column": "password",
+                "type": "text",
+                "value": "{{$_POST.password}}"
+              },
+              {
+                "table": "user",
+                "column": "role",
+                "type": "text",
+                "value": "{{$_POST.role}}"
+              }
+            ],
+            "table": "user",
+            "returning": "user_id",
+            "query": "insert into `user` (`email`, `name`, `password`, `role`) values (?, ?, ?, ?) returning `user_id`",
+            "params": [
+              {
+                "name": ":P1",
+                "type": "expression",
+                "value": "{{$_POST.name}}",
+                "test": ""
+              },
+              {
+                "name": ":P2",
+                "type": "expression",
+                "value": "{{$_POST.email}}",
+                "test": ""
+              },
+              {
+                "name": ":P3",
+                "type": "expression",
+                "value": "{{$_POST.password}}",
+                "test": ""
+              },
+              {
+                "name": ":P4",
+                "type": "expression",
+                "value": "{{$_POST.role}}",
+                "test": ""
+              }
+            ]
+          }
+        },
+        "output": true,
+        "meta": [
+          {
+            "name": "identity",
+            "type": "text"
+          },
+          {
+            "name": "affected",
+            "type": "number"
+          }
+        ]
+      }
+    ]
+  },
+  "usedModules": {
+    "argon2": "^0.30.2"
+  }
+}

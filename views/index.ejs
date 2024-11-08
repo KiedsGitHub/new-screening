@@ -74,7 +74,7 @@
 
                     <!-- Email Field with Icon -->
                     <div class="form-group mb-3">
-                        <label for="email" class="form-label text-dark">Email</label>
+                        <label for="emails" class="form-label text-dark">Email</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
@@ -83,7 +83,7 @@
 
                     <!-- Password Field with Icon -->
                     <div class="form-group mb-4">
-                        <label for="password" class="form-label text-dark">Password</label>
+                        <label for="password1" class="form-label text-dark">Password</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-lock"></i></span>
                             <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
@@ -108,14 +108,16 @@
             <div class="modal-body p-4">
                 <h2 class="text-center mb-4">Create Your Account</h2>
                 <p class="text-center text-muted mb-4">Please fill in the details to register.</p>
+
                 <!-- Register Form -->
-                <form action="/api/action/register" method="post" id="registerIndex">
+                <form action="/api/action/registerUser" method="post" dmx-on:success="notifies1.success('Register completed! Please login.');registerIndex.reset()" is="dmx-serverconnect-form" id="registerIndex">
+
                     <!-- Role Selection with Icon -->
                     <div class="form-group mb-3">
-                        <label for="role" class="form-label">Role</label>
+                        <label for="roletype" class="form-label">Role</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-                            <select id="roletype1" class="form-select" required="">
+                            <select id="roletype" name="role" class="form-select" required="">
                                 <option selected="" value="">Select Role</option>
                                 <option value="BU">Business Unit</option>
                                 <option value="Manager">Manager</option>
@@ -130,7 +132,7 @@
                         <label for="name" class="form-label">Name</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required="">
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required="">
                         </div>
                     </div>
 
@@ -139,25 +141,25 @@
                         <label for="emails" class="form-label">Email</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                            <input type="email" id="emails" class="form-control" placeholder="Enter your email" required="">
+                            <input type="email" id="emails" name="email" class="form-control" placeholder="Enter your email" required="">
                         </div>
                     </div>
 
                     <!-- Password with Icon -->
                     <div class="form-group mb-4">
-                        <label for="passwordd" class="form-label">Password</label>
+                        <label for="password1" class="form-label">Password</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                            <input type="password" id="passwordd" class="form-control" placeholder="Enter your password" required="">
+                            <input type="password" id="password1" name="password" class="form-control" placeholder="Enter your password" required="">
                         </div>
                     </div>
 
                     <!-- Confirm Password with Icon -->
                     <div class="form-group mb-4">
-                        <label for="passwordd2" class="form-label">Confirm Password</label>
+                        <label for="password2" class="form-label">Confirm Password</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                            <input type="password" id="passwordd2" class="form-control" placeholder="Confirm your password" required="">
+                            <input type="password" id="password2" class="form-control" placeholder="Confirm your password" required="">
                         </div>
                     </div>
 

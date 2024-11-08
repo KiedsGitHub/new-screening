@@ -6,6 +6,10 @@
     "client": "sqlite3",
     "connection": {
       "filename": "/DB_screening.sqlite3"
-    }
-  }
+    },
+    "meta": {}
+  },
+  "actionFilePath": "file:///C:/AdamScreening/app/modules/connections/db.json",
+  "serverType": "node",
+  "fileName": "db.json"
 }
