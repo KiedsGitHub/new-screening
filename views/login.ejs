@@ -1,0 +1,50 @@
+<!-- Wappler include fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="login" appConnect="local" -->
+<meta name="ac:route" content="/login">
+
+<div class="container d-flex align-items-center justify-content-center min-vh-100 bg-light">
+    <div class="card shadow p-4" style="max-width: 400px; width: 100%; border-radius: 10px;">
+        <h2 class="text-center mb-4">Welcome Back</h2>
+        <p class="text-center text-muted mb-4">Login to your account</p>
+
+        <!-- Form Login -->
+        <form id="loginForm">
+
+            <!-- Pilihan Role dengan Ikon -->
+            <div class="form-group mb-3">
+                <label for="role" class="form-label">Role</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                    <select id="role" class="form-select" required>
+                        <option value="BU">Business Unit</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Candidate">Candidate</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Medan Email dengan Ikon -->
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+            </div>
+
+            <!-- Medan Password dengan Ikon -->
+            <div class="form-group mb-4">
+                <label for="password" class="form-label">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+            </div>
+
+            <!-- Butang Login -->
+            <button type="submit" class="btn btn-primary w-100 py-2">Login</button>
+
+            <!-- Link ke halaman Register -->
+            <p class="text-center text-muted mt-3">Don't have an account? <a href="/register">Register here</a>.</p>
+        </form>
+    </div>
+</div>

@@ -32,7 +32,7 @@
       "access": "local",
       "targetType": "wappler",
       "databaseConnectionType": "sqlite",
-      "sqliteDbFile": "/db/db_dev.sqlite3"
+      "sqliteDbFile": "/DB_screening.sqlite3"
     }
   ],
   "activeTarget": "Development",
