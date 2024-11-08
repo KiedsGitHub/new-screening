@@ -1,37 +1,114 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="bu_dashboard" appConnect="local" components="{dmxBrowser:{}}" -->
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="bu_dashboard" appConnect="local" components="{dmxBrowser:{dmxModal:{}}}" -->
 <div is="dmx-browser" id="browser1"></div>
 <meta name="ac:route" content="/bu_dashboard">
 
+<!-- Modal for displaying submission list -->
+<div class="modal fade" id="submissionListModal" tabindex="-1" aria-labelledby="submissionListModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="submissionListModalLabel">Submission List</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add table or list for displaying submissions here -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Submission ID</th>
+                            <th>Submission Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example of dynamic data rendering (replace with dynamic data from database) -->
+                        <tr>
+                            <td>1</td>
+                            <td>1001</td>
+                            <td>2024-11-07</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1002</td>
+                            <td>2024-11-06</td>
+                            <td>Approved</td>
+                        </tr>
+                        <!-- Add more rows dynamically as needed -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container py-5 h-auto w-auto bg-light">
-    <h2 class="text-center mb-4">Business Unit Dashboard</h2>
-
-    <!-- Statistik Dashboard -->
-    <div class="row mb-4">
-        <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm p-3 mb-4 text-center">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-file-alt fa-2x text-primary mb-3"></i></h5>
-                    <h6>Total Submissions</h6>
-                    <p class="display-6" id="totalSubmissions">0</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm p-3 mb-4 text-center">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-clock fa-2x text-warning mb-3"></i></h5>
-                    <h6>Pending Reviews</h6>
-                    <p class="display-6" id="pendingReviews">0</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tambahkan statistik tambahan di sini jika diperlukan -->
+    <!-- Dashboard Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-center">Business Unit Dashboard</h2>
+        <button class="btn btn-primary btn-lg px-4" dmx-on:click="browser1.goto('/submit_form', true, 'Submission Form')">
+            <i class="fas fa-plus-circle me-2"></i> Submit New Form
+        </button>
     </div>
 
-    <!-- Butang Tindakan -->
-    <div class="text-center"><button class="btn btn-primary btn-lg px-4" dmx-on:click="browser1.goto('/submit_form',true,'Submision Form')">
-            <i class="fas fa-plus-circle me-2"></i>Submit New Form
-        </button></div>
+    <!-- Statistik Dashboard -->
+    <div class="row mb-4 text-center mt-xxl-0 pt-xxl-5">
+        <!-- Total Submissions Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 rounded-lg">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-file-alt fa-3x text-primary"></i>
+                    </h5>
+                    <h6 class="fw-bold text-secondary">Total Submissions</h6>
+                    <p class="display-6 text-dark" id="totalSubmissions">0</p>
+                    <p class="text-muted">Number of submissions made by your unit</p>
+                    <!-- Button to view list -->
+                    <button class="btn btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#submissionListModal">
+                        View List
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Reviews Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 rounded-lg">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-clock fa-3x text-warning"></i>
+                    </h5>
+                    <h6 class="fw-bold text-secondary">Pending Reviews</h6>
+                    <p class="display-6 text-dark" id="pendingReviews">0</p>
+                    <p class="text-muted">Submissions awaiting review</p>
+                    <!-- Button to view list -->
+                    <button class="btn btn-outline-warning mt-3" data-bs-toggle="modal" data-bs-target="#submissionListModal">
+                        View List
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Approved Submissions Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 rounded-lg">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-check-circle fa-3x text-success"></i>
+                    </h5>
+                    <h6 class="fw-bold text-secondary">Approved Submissions</h6>
+                    <p class="display-6 text-dark" id="approvedSubmissions">0</p>
+                    <p class="text-muted">Total approved submissions</p>
+                    <!-- Button to view list -->
+                    <button class="btn btn-outline-success mt-3" data-bs-toggle="modal" data-bs-target="#submissionListModal">
+                        View List
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

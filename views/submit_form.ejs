@@ -3,82 +3,104 @@
 <meta name="ac:route" content="/submit_form">
 
 <div class="container py-5">
-    <div class="card shadow p-5 mx-auto" style="max-width: 800px; border-radius: 10px;">
-        <h2 class="text-center mb-4">Employee Requisition Form</h2>
+    <div class="card shadow-lg p-5 mx-auto" style="max-width: 850px; border-radius: 15px; background: linear-gradient(135deg, #e0eafc, #cfdef3);">
+        <h2 class="text-center mb-4" style="font-weight: 700; color: #35495e;">Employee Requisition Form</h2>
 
         <form id="submitForm">
-            <div class="row">
-                <!-- Candidate Name -->
-                <div class="col-md-6 mb-3">
-                    <label for="candidateName" class="form-label">Candidate Name</label>
-                    <input type="text" id="candidateName" class="form-control" placeholder="Enter candidate name" required>
+            <!-- Requester Section -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label for="requesterName" class="form-label" style="font-weight: 600;">Requester Name</label>
+                    <input type="text" id="requesterName" class="form-control border-0 shadow-sm" placeholder="Enter requester name" required style="border-radius: 8px;">
                 </div>
-
-                <!-- Position Applied For -->
-                <div class="col-md-6 mb-3">
-                    <label for="position" class="form-label">Position Applied For</label>
-                    <input type="text" id="position" class="form-control" placeholder="Enter position name" required>
+                <div class="col-md-6">
+                    <label for="submitDate" class="form-label" style="font-weight: 600;">Submit Date</label>
+                    <input type="date" id="submitDate" class="form-control border-0 shadow-sm" required style="border-radius: 8px;">
                 </div>
             </div>
 
-            <div class="row">
-                <!-- Job Title -->
-                <div class="col-md-6 mb-3">
-                    <label for="jobTitle" class="form-label">Job Title</label>
-                    <input type="text" id="jobTitle" class="form-control" placeholder="Enter job title" required>
-                </div>
+            <!-- Detail Section -->
+            <div class="border-top border-3 border-primary mb-4 pt-3">
+                <h5 style="font-weight: 700; color: #2c3e50;">Details</h5>
+            </div>
 
-                <!-- Department -->
-                <div class="col-md-6 mb-3">
-                    <label for="department" class="form-label">Department</label>
-                    <select id="department" class="form-select" required>
-                        <option value="">Select Department</option>
-                        <option value="HR">Human Resources</option>
-                        <option value="Finance">Finance</option>
-                        <option value="Engineering">Engineering</option>
-                        <option value="Marketing">Marketing</option>
-                        <!-- Add more departments as needed -->
-                    </select>
+            <!-- Requisition Type -->
+            <div class="row mb-3">
+                <label class="form-label" style="font-weight: 600;">Requisition Type</label>
+                <div class="col-md-6">
+                    <input type="radio" id="newHeadcount" name="requisitionType" value="New Headcount" required>
+                    <label for="newHeadcount" style="color: #2c3e50;">New Headcount</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="radio" id="replacement" name="requisitionType" value="Replacement">
+                    <label for="replacement" style="color: #2c3e50;">Replacement</label>
                 </div>
             </div>
 
-            <div class="row">
-                <!-- Expected Start Date -->
-                <div class="col-md-6 mb-3">
-                    <label for="startDate" class="form-label">Expected Start Date</label>
-                    <input type="date" id="startDate" class="form-control" required>
-                </div>
+            <!-- Justification -->
+            <div class="form-group mb-3">
+                <label for="justification" class="form-label" style="font-weight: 600;">Justification</label>
+                <textarea id="justification" class="form-control border-0 shadow-sm" rows="3" placeholder="Enter justification" style="border-radius: 8px;"></textarea>
+            </div>
 
-                <!-- Salary Range -->
-                <div class="col-md-6 mb-3">
-                    <label for="salaryRange" class="form-label">Salary Range</label>
-                    <input type="text" id="salaryRange" class="form-control" placeholder="e.g., RM3000 - RM4000" required>
+            <!-- Job Grade -->
+            <div class="row mb-3">
+                <label class="form-label" style="font-weight: 600;">Job Grade</label>
+                <div class="col-md-2">
+                    <input type="radio" id="e1" name="jobGrade" value="E1">
+                    <label for="e1" style="color: #2c3e50;">E1</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" id="e2" name="jobGrade" value="E2">
+                    <label for="e2" style="color: #2c3e50;">E2</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" id="e3" name="jobGrade" value="E3">
+                    <label for="e3" style="color: #2c3e50;">E3</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" id="e4" name="jobGrade" value="E4">
+                    <label for="e4" style="color: #2c3e50;">E4</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" id="e5" name="jobGrade" value="E5">
+                    <label for="e5" style="color: #2c3e50;">E5</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" id="e6" name="jobGrade" value="E6">
+                    <label for="e6" style="color: #2c3e50;">E6</label>
                 </div>
             </div>
 
-            <div class="row">
-                <!-- Location -->
-                <div class="col-md-6 mb-3">
-                    <label for="location" class="form-label">Location</label>
-                    <input type="text" id="location" class="form-control" placeholder="e.g., Kuala Lumpur Office" required>
-                </div>
+            <!-- Job Description -->
+            <div class="form-group mb-3">
+                <label for="jobDescription" class="form-label" style="font-weight: 600;">Job Description</label>
+                <input type="text" id="jobDescription" class="form-control border-0 shadow-sm" placeholder="Enter job description" required style="border-radius: 8px;">
+            </div>
 
-                <!-- Required Skills -->
+            <!-- Job Title and Report To -->
+            <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="skills" class="form-label">Required Skills</label>
-                    <textarea id="skills" class="form-control" rows="2" placeholder="e.g., Project Management, Data Analysis"></textarea>
+                    <label for="jobTitle" class="form-label" style="font-weight: 600;">Job Title</label>
+                    <input type="text" id="jobTitle" class="form-control border-0 shadow-sm" placeholder="Enter job title" required style="border-radius: 8px;">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="reportTo" class="form-label" style="font-weight: 600;">Report To</label>
+                    <input type="text" id="reportTo" class="form-control border-0 shadow-sm" placeholder="Enter report to" required style="border-radius: 8px;">
                 </div>
             </div>
 
-            <!-- Interview Availability -->
-            <div class="form-group mb-4">
-                <label for="interviewAvailability" class="form-label">Interview Availability</label>
-                <textarea id="interviewAvailability" class="form-control" rows="2" placeholder="e.g., Weekdays, 9 AM - 5 PM"></textarea>
+            <!-- Require Date -->
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label for="requireDate" class="form-label" style="font-weight: 600;">Require Date</label>
+                    <input type="date" id="requireDate" class="form-control border-0 shadow-sm" required style="border-radius: 8px;">
+                </div>
             </div>
 
             <!-- Submit Button -->
             <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-lg w-50" style="border-radius: 25px;" dmx-on:click="notifies1.success('Form Submitted!')">Submit Form</button>
+                <button type="submit" class="btn btn-primary btn-lg w-50" style="border-radius: 25px; background-color: #35495e; font-weight: bold;" dmx-on:click="notifies1.success('Form Submitted!')">Submit</button>
             </div>
         </form>
     </div>
