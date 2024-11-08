@@ -1,5 +1,5 @@
 {
-  "projectName": "Cuba",
+  "projectName": "ScreeningAdam",
   "styleFile": "/css/style.css",
   "assetsFolder": "/assets",
   "designFramework": "bootstrap5",
@@ -32,7 +32,7 @@
       "access": "local",
       "targetType": "wappler",
       "databaseConnectionType": "sqlite",
-      "sqliteDbFile": "/db/db_dev.sqlite3"
+      "sqliteDbFile": "/DB_screening.sqlite3"
     }
   ],
   "activeTarget": "Development",

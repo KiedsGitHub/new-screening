@@ -2,6 +2,10 @@
   "direct": true,
   "type": "sqlite3",
   "connection": {
-    "filename": "/db/db_dev.sqlite3"
+    "filename": "/DB_screening.sqlite3"
+  },
+  "schema": {
+    "tables": {},
+    "views": {}
   }
 }
