@@ -1,0 +1,193 @@
+{
+  "meta": {
+    "options": {
+      "linkedFile": "/views/submit_form.ejs",
+      "linkedForm": "submitForm"
+    },
+    "$_POST": [
+      {
+        "type": "text",
+        "fieldName": "requesterName",
+        "name": "requesterName"
+      },
+      {
+        "type": "date",
+        "fieldName": "submitDate",
+        "name": "submitDate"
+      },
+      {
+        "type": "text",
+        "fieldName": "requisitionType",
+        "name": "requisitionType"
+      },
+      {
+        "type": "text",
+        "fieldName": "justification",
+        "name": "justification"
+      },
+      {
+        "type": "text",
+        "fieldName": "jobGrade",
+        "name": "jobGrade"
+      },
+      {
+        "type": "text",
+        "fieldName": "jobDescription",
+        "name": "jobDescription"
+      },
+      {
+        "type": "text",
+        "fieldName": "jobTitle",
+        "name": "jobTitle"
+      },
+      {
+        "type": "text",
+        "fieldName": "reportTo",
+        "name": "reportTo"
+      },
+      {
+        "type": "date",
+        "fieldName": "requireDate",
+        "name": "requireDate"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "insert",
+      "module": "dbupdater",
+      "action": "insert",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "insert",
+          "values": [
+            {
+              "table": "request_form",
+              "column": "requester_name",
+              "type": "text",
+              "value": "{{$_POST.requesterName}}"
+            },
+            {
+              "table": "request_form",
+              "column": "submit_date",
+              "type": "date",
+              "value": "{{$_POST.submitDate}}"
+            },
+            {
+              "table": "request_form",
+              "column": "requesition_type",
+              "type": "text",
+              "value": "{{$_POST.requisitionType}}"
+            },
+            {
+              "table": "request_form",
+              "column": "justification",
+              "type": "text",
+              "value": "{{$_POST.justification}}"
+            },
+            {
+              "table": "request_form",
+              "column": "job_grade",
+              "type": "text",
+              "value": "{{$_POST.jobGrade}}"
+            },
+            {
+              "table": "request_form",
+              "column": "job_description",
+              "type": "text",
+              "value": "{{$_POST.jobDescription}}"
+            },
+            {
+              "table": "request_form",
+              "column": "job_title",
+              "type": "text",
+              "value": "{{$_POST.jobTitle}}"
+            },
+            {
+              "table": "request_form",
+              "column": "report_to",
+              "type": "text",
+              "value": "{{$_POST.reportTo}}"
+            },
+            {
+              "table": "request_form",
+              "column": "require_date",
+              "type": "date",
+              "value": "{{$_POST.requireDate}}"
+            }
+          ],
+          "table": "request_form",
+          "returning": "request_id",
+          "query": "insert into `request_form` (`job_description`, `job_grade`, `job_title`, `justification`, `report_to`, `requesition_type`, `requester_name`, `require_date`, `submit_date`) values (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+          "params": [
+            {
+              "name": ":P1",
+              "type": "expression",
+              "value": "{{$_POST.requesterName}}",
+              "test": ""
+            },
+            {
+              "name": ":P2",
+              "type": "expression",
+              "value": "{{$_POST.submitDate}}",
+              "test": ""
+            },
+            {
+              "name": ":P3",
+              "type": "expression",
+              "value": "{{$_POST.requisitionType}}",
+              "test": ""
+            },
+            {
+              "name": ":P4",
+              "type": "expression",
+              "value": "{{$_POST.justification}}",
+              "test": ""
+            },
+            {
+              "name": ":P5",
+              "type": "expression",
+              "value": "{{$_POST.jobGrade}}",
+              "test": ""
+            },
+            {
+              "name": ":P6",
+              "type": "expression",
+              "value": "{{$_POST.jobDescription}}",
+              "test": ""
+            },
+            {
+              "name": ":P7",
+              "type": "expression",
+              "value": "{{$_POST.jobTitle}}",
+              "test": ""
+            },
+            {
+              "name": ":P8",
+              "type": "expression",
+              "value": "{{$_POST.reportTo}}",
+              "test": ""
+            },
+            {
+              "name": ":P9",
+              "type": "expression",
+              "value": "{{$_POST.requireDate}}",
+              "test": ""
+            }
+          ]
+        }
+      },
+      "meta": [
+        {
+          "name": "identity",
+          "type": "text"
+        },
+        {
+          "name": "affected",
+          "type": "number"
+        }
+      ]
+    }
+  }
+}

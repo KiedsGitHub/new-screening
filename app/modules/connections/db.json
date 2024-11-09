@@ -5,7 +5,11 @@
   "options": {
     "client": "sqlite3",
     "connection": {
-      "filename": "/DB_screening.sqlite3"
-    }
-  }
+      "filename": "/DB_Baru.sqlite3"
+    },
+    "meta": {}
+  },
+  "actionFilePath": "file:///C:/AdamScreening/app/modules/connections/db.json",
+  "serverType": "node",
+  "fileName": "db.json"
 }

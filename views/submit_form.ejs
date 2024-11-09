@@ -6,16 +6,16 @@
     <div class="card shadow-lg p-5 mx-auto" style="max-width: 850px; border-radius: 15px; background: linear-gradient(135deg, #e0eafc, #cfdef3);">
         <h2 class="text-center mb-4" style="font-weight: 700; color: #35495e;">Employee Requisition Form</h2>
 
-        <form id="submitForm">
+        <form id="submitForm" is="dmx-serverconnect-form" method="post" action="/api/action/submitRequest" dmx-on:success="notifies1.success('Form Submitted! Please wait the respond');submitForm.reset()">
             <!-- Requester Section -->
             <div class="row mb-4">
                 <div class="col-md-6">
                     <label for="requesterName" class="form-label" style="font-weight: 600;">Requester Name</label>
-                    <input type="text" id="requesterName" class="form-control border-0 shadow-sm" placeholder="Enter requester name" required style="border-radius: 8px;">
+                    <input type="text" id="requesterName" name="requesterName" class="form-control border-0 shadow-sm" placeholder="Enter requester name" required style="border-radius: 8px;">
                 </div>
                 <div class="col-md-6">
                     <label for="submitDate" class="form-label" style="font-weight: 600;">Submit Date</label>
-                    <input type="date" id="submitDate" class="form-control border-0 shadow-sm" required style="border-radius: 8px;">
+                    <input type="date" id="submitDate" name="submitDate" class="form-control border-0 shadow-sm" required style="border-radius: 8px;">
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
             <!-- Justification -->
             <div class="form-group mb-3">
                 <label for="justification" class="form-label" style="font-weight: 600;">Justification</label>
-                <textarea id="justification" class="form-control border-0 shadow-sm" rows="3" placeholder="Enter justification" style="border-radius: 8px;"></textarea>
+                <textarea id="justification" name="justification" class="form-control border-0 shadow-sm" rows="3" placeholder="Enter justification" style="border-radius: 8px;"></textarea>
             </div>
 
             <!-- Job Grade -->
@@ -75,18 +75,18 @@
             <!-- Job Description -->
             <div class="form-group mb-3">
                 <label for="jobDescription" class="form-label" style="font-weight: 600;">Job Description</label>
-                <input type="text" id="jobDescription" class="form-control border-0 shadow-sm" placeholder="Enter job description" required style="border-radius: 8px;">
+                <input type="text" id="jobDescription" name="jobDescription" class="form-control border-0 shadow-sm" placeholder="Enter job description" required style="border-radius: 8px;">
             </div>
 
             <!-- Job Title and Report To -->
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="jobTitle" class="form-label" style="font-weight: 600;">Job Title</label>
-                    <input type="text" id="jobTitle" class="form-control border-0 shadow-sm" placeholder="Enter job title" required style="border-radius: 8px;">
+                    <input type="text" id="jobTitle" name="jobTitle" class="form-control border-0 shadow-sm" placeholder="Enter job title" required style="border-radius: 8px;">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="reportTo" class="form-label" style="font-weight: 600;">Report To</label>
-                    <input type="text" id="reportTo" class="form-control border-0 shadow-sm" placeholder="Enter report to" required style="border-radius: 8px;">
+                    <input type="text" id="reportTo" name="reportTo" class="form-control border-0 shadow-sm" placeholder="Enter report to" required style="border-radius: 8px;">
                 </div>
             </div>
 
@@ -94,13 +94,13 @@
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <label for="requireDate" class="form-label" style="font-weight: 600;">Require Date</label>
-                    <input type="date" id="requireDate" class="form-control border-0 shadow-sm" required style="border-radius: 8px;">
+                    <input type="date" id="requireDate" name="requireDate" class="form-control border-0 shadow-sm" required style="border-radius: 8px;">
                 </div>
             </div>
 
             <!-- Submit Button -->
             <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-lg w-50" style="border-radius: 25px; background-color: #35495e; font-weight: bold;" dmx-on:click="notifies1.success('Form Submitted!')">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg w-50" style="border-radius: 25px; background-color: #35495e; font-weight: bold;">Submit</button>
             </div>
         </form>
     </div>
