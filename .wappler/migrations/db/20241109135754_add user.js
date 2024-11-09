@@ -3,10 +3,10 @@ exports.up = function(knex) {
   return knex.schema
     .createTable('user', async function (table) {
       table.increments('user_id');
-      table.string('name');
-      table.string('email');
-      table.string('password');
-      table.string('role');
+      table.text('name');
+      table.text('email');
+      table.text('password');
+      table.text('role');
     })
 
 };

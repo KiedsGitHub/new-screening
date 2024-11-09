@@ -12,6 +12,7 @@ exports.up = function(knex) {
       table.text('job_title');
       table.text('report_to');
       table.date('require_date');
+      table.text('status');
     })
 
 };
