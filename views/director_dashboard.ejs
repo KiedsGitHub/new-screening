@@ -1,4 +1,5 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="director_dashboard" appConnect="local" -->
+<dmx-serverconnect id="displayRequest" url="/api/action/displayRequest"></dmx-serverconnect>
 <meta name="ac:route" content="/director_dashboard">
 
 <div class="container my-4">
@@ -21,15 +22,21 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody is="dmx-repeat" dmx-generator="bs4table" dmx-bind:repeat="fetchPendingRequests.data.pendingQuery">
+                <tbody is="dmx-repeat" dmx-bind:repeat="displayRequest.data.query">
                     <tr>
                         <td>{{request_id}}</td>
                         <td>{{job_title}}</td>
                         <td>{{requester_name}}</td>
-                        <td><span class="badge" dmx-bind:class="status == 'Pending' ? 'bg-warning text-dark' : (status == 'Approved' ? 'bg-success' : 'bg-danger')">{{status}}</span></td>
                         <td>
-                            <button class="btn btn-success btn-sm" dmx-on:click="approveRequest(request_id)">Approve</button>
-                            <button class="btn btn-danger btn-sm" dmx-on:click="rejectRequest(request_id)">Reject</button>
+                            <span class="badge" dmx-bind:class="status == 'Pending' ? 'bg-warning text-dark' : (status == 'Approved' ? 'bg-success' : 'bg-danger')">
+                                {{status}}
+                            </span>
+                        </td>
+                        <td>
+                            <!-- Approve Button -->
+                            <button class="btn btn-success btn-sm" dmx-on:click="approveRequest(request_id).then(displayRequest.load())">Approve</button>
+                            <!-- Reject Button -->
+                            <button class="btn btn-danger btn-sm" dmx-on:click="rejectRequest(request_id).then(displayRequest.load())">Reject</button>
                         </td>
                     </tr>
                 </tbody>

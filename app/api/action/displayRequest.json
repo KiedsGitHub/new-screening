@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbconnector",
+      "action": "select",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "select",
+          "columns": [
+            {
+              "table": "request_form",
+              "column": "request_id"
+            },
+            {
+              "table": "request_form",
+              "column": "job_title"
+            },
+            {
+              "table": "request_form",
+              "column": "requester_name"
+            },
+            {
+              "table": "request_form",
+              "column": "status"
+            }
+          ],
+          "params": [],
+          "table": {
+            "name": "request_form"
+          },
+          "primary": "request_id",
+          "joins": [],
+          "query": "SELECT request_id, job_title, requester_name, status FROM request_form WHERE status = 'Pending'"
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "number",
+          "name": "request_id"
+        },
+        {
+          "type": "text",
+          "name": "job_title"
+        },
+        {
+          "type": "text",
+          "name": "requester_name"
+        },
+        {
+          "type": "text",
+          "name": "status"
+        }
+      ],
+      "outputType": "array"
+    }
+  }
+}
