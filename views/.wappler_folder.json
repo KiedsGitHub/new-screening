@@ -31,7 +31,7 @@
     "layoutPage": "kosong",
     "description": ""
   },
-  "test_home.ejs": {
+  "test_hr_edit.ejs": {
     "layoutPage": "main",
     "description": ""
   }
