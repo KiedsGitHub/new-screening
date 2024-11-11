@@ -1,0 +1,56 @@
+{
+  "name": "userList",
+  "module": "dbconnector",
+  "action": "select",
+  "options": {
+    "connection": "db",
+    "sql": {
+      "type": "SELECT",
+      "columns": [
+        {
+          "table": "user",
+          "column": "user_id",
+          "recid": 1
+        },
+        {
+          "table": "user",
+          "column": "name",
+          "recid": 2
+        },
+        {
+          "table": "user",
+          "column": "email",
+          "recid": 3
+        },
+        {
+          "table": "user",
+          "column": "role",
+          "recid": 4
+        }
+      ],
+      "table": {
+        "name": "user"
+      }
+    }
+  },
+  "output": true,
+  "meta": [
+    {
+      "type": "number",
+      "name": "user_id"
+    },
+    {
+      "type": "text",
+      "name": "name"
+    },
+    {
+      "type": "text",
+      "name": "email"
+    },
+    {
+      "type": "text",
+      "name": "role"
+    }
+  ],
+  "outputType": "array"
+}

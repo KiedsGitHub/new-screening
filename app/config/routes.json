@@ -7,11 +7,6 @@
       "layout": "main"
     },
     {
-      "path": "/register",
-      "page": "register",
-      "layout": "kosong"
-    },
-    {
       "path": "/bu_dashboard",
       "page": "bu_dashboard",
       "layout": "main"
@@ -24,6 +19,11 @@
     {
       "path": "/director_dashboard",
       "page": "director_dashboard",
+      "layout": "main"
+    },
+    {
+      "path": "/test_hr_edit",
+      "page": "test_hr_edit",
       "layout": "main"
     }
   ]

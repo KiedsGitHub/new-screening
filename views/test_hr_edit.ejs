@@ -1,0 +1,48 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="test_home" appConnect="local" components="{dmxNotifications:{}}" -->
+<meta name="ac:route" content="/test_hr_edit">
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">User Management - HR Portal</h2>
+
+    <!-- Server Connect untuk tarik data user -->
+    <dmx-serverconnect id="getUsers" url="/api/action/getUser"></dmx-serverconnect>
+
+    <!-- Table untuk memaparkan senarai user -->
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dmx-repeat:users="getUsers.data.userList">
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>
+                        <!-- Dropdown untuk pilih role baru -->
+                        <select class="form-select" dmx-bind:value="role" id="roleSelect{{$index}}">
+                            <option value="BU">Business Unit</option>
+                            <option value="Director">Director</option>
+                            <option value="Candidate">Candidate</option>
+                            <option value="HR">HR</option>
+                        </select>
+                    </td>
+                    <td>
+                        <!-- Button Update Role -->
+                        <button class="btn btn-primary" dmx-on:click="serverconnect_updateRole.load({ user_id: user_id, role: roleSelect{{$index}}.value })">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Notifications untuk berjaya/kesalahan update -->
+    <dmx-notifications id="notifies1"></dmx-notifications>
+
+    <!-- Server Connect untuk Update Role -->
+    <dmx-serverconnect id="serverconnect_updateRole" url="/api/action/updateRole" dmx-on:success="notifies1.success('Role updated successfully!')" dmx-on:error="notifies1.danger('Error updating role.')"></dmx-serverconnect>
+</div>

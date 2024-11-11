@@ -30,5 +30,9 @@
   "cuba-123.ejs": {
     "layoutPage": "kosong",
     "description": ""
+  },
+  "test_hr_edit.ejs": {
+    "layoutPage": "main",
+    "description": ""
   }
 }

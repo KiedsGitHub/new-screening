@@ -53,17 +53,11 @@
               "column": "password",
               "type": "text",
               "value": "{{$_POST.password}}"
-            },
-            {
-              "table": "user",
-              "column": "role",
-              "type": "text",
-              "value": "{{$_POST.role}}"
             }
           ],
           "table": "user",
           "returning": "user_id",
-          "query": "insert into `user` (`email`, `name`, `password`, `role`) values (?, ?, ?, ?) returning `user_id`",
+          "query": "insert into `user` (`email`, `name`, `password`) values (?, ?, ?) returning `user_id`",
           "params": [
             {
               "name": ":P1",
@@ -81,12 +75,6 @@
               "name": ":P3",
               "type": "expression",
               "value": "{{$_POST.password}}",
-              "test": ""
-            },
-            {
-              "name": ":P4",
-              "type": "expression",
-              "value": "{{$_POST.role}}",
               "test": ""
             }
           ]
