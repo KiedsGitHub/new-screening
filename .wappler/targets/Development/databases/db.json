@@ -139,7 +139,8 @@
               "type": "text",
               "primary": false,
               "unique": false,
-              "nullable": true
+              "nullable": true,
+              "default": "Default"
             }
           }
         },
