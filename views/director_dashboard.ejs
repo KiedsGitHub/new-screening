@@ -1,10 +1,18 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="director_dashboard" appConnect="local" -->
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="director_dashboard" appConnect="local" components="{dmxBootstrap5Alert:{}}" -->
 <dmx-serverconnect id="displayRequest" url="/api/action/displayRequest"></dmx-serverconnect>
+<dmx-serverconnect id="approveRequest" url="/api/action/approveRequest"></dmx-serverconnect>
+<dmx-serverconnect id="rejectRequest" url="/api/action/rejectRequest"></dmx-serverconnect>
 <meta name="ac:route" content="/director_dashboard">
 
 <div class="container my-4">
     <h2 class="text-center">Director Dashboard</h2>
     <p class="text-center">Approve or Reject Requests from Business Units</p>
+
+    <!-- Alert Notifications -->
+    <div id="notification" class="alert alert-dismissible fade show" role="alert" is="dmx-show" dmx-show="notificationMessage.value">
+        <span dmx-bind:text="notificationMessage.value"></span>
+        <button type="button" class="btn-close" dmx-on:click="notificationMessage.setValue('')" aria-label="Close"></button>
+    </div>
 
     <!-- Approval Requests Table -->
     <div class="card shadow-sm">
@@ -34,9 +42,9 @@
                         </td>
                         <td>
                             <!-- Approve Button -->
-                            <button class="btn btn-success btn-sm" dmx-on:click="approveRequest(request_id).then(displayRequest.load())">Approve</button>
+                            <button class="btn btn-success btn-sm" dmx-on:click="approveRequest.load({request_id: request_id}).then(displayRequest.load()).then(notificationMessage.setValue('Request ID ' + request_id + ' Approved'))">Approve</button>
                             <!-- Reject Button -->
-                            <button class="btn btn-danger btn-sm" dmx-on:click="rejectRequest(request_id).then(displayRequest.load())">Reject</button>
+                            <button class="btn btn-danger btn-sm" dmx-on:click="rejectRequest.load({request_id: request_id}).then(displayRequest.load()).then(notificationMessage.setValue('Request ID ' + request_id + ' Rejected'))">Reject</button>
                         </td>
                     </tr>
                 </tbody>
@@ -44,3 +52,6 @@
         </div>
     </div>
 </div>
+
+<!-- Hidden Variable for Notification Message -->
+<dmx-value id="notificationMessage" value=""></dmx-value>

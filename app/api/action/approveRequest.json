@@ -16,9 +16,15 @@
           "value": "Approved"
         }
       ],
-      "params": [],
+      "params": [
+        {
+          "name": "P1",
+          "type": "number",
+          "value": "{{request_id}}"
+        }
+      ],
       "returning": "request_id",
-      "query": "update `request_form` set `status` = ? returning `request_id`"
+      "query": "update `request_form` set `status` = ? where `request_id` = ? returning `request_id`"
     }
   },
   "meta": [
