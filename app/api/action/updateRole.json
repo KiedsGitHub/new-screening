@@ -41,7 +41,8 @@
               "table": "user",
               "column": "role",
               "type": "text",
-              "value": "{{$_POST.role}}"
+              "value": "{{$_POST.role}}",
+              "recid": 1
             }
           ],
           "table": "user",

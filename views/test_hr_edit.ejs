@@ -5,7 +5,7 @@
     <h2 class="text-center mb-4">User Management - HR Portal</h2>
 
     <!-- Server Connect untuk tarik data user -->
-    <dmx-serverconnect id="getUsers" url="/api/action/getUser"></dmx-serverconnect>
+    <dmx-serverconnect id="getUser" url="/api/action/getUser"></dmx-serverconnect>
 
     <!-- Table untuk memaparkan senarai user -->
     <div class="table-responsive">
@@ -19,12 +19,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr dmx-repeat:users="getUsers.data.userList">
+                <tr dmx-repeat:users="getUser.data.userList">
                     <td>{{name}}</td>
                     <td>{{email}}</td>
                     <td>
                         <!-- Dropdown untuk pilih role baru -->
-                        <select class="form-select" dmx-bind:value="role" id="roleSelect{{$index}}">
+                        <select class="form-select" dmx-bind:value="role" id="role">
                             <option value="BU">Business Unit</option>
                             <option value="Director">Director</option>
                             <option value="Candidate">Candidate</option>
@@ -33,16 +33,17 @@
                     </td>
                     <td>
                         <!-- Button Update Role -->
-                        <button class="btn btn-primary" dmx-on:click="serverconnect_updateRole.load({ user_id: user_id, role: roleSelect{{$index}}.value })">Update</button>
+                        <button class="btn btn-primary" dmx-on:click="updateRole.load({ user_id: user_id, role: role.value })">Update</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <!-- Notifications untuk berjaya/kesalahan update -->
     <dmx-notifications id="notifies1"></dmx-notifications>
 
-    <!-- Server Connect untuk Update Role -->
-    <dmx-serverconnect id="serverconnect_updateRole" url="/api/action/updateRole" dmx-on:success="notifies1.success('Role updated successfully!')" dmx-on:error="notifies1.danger('Error updating role.')"></dmx-serverconnect>
+    <dmx-serverconnect id="updateRole" url="/api/action/updateRole" method="post" dmx-on:success="notifies1.success('Role updated successfully!'); getUser.load()" dmx-on:error="notifies1.danger('Error updating role.')">
+        <input type="hidden" name="user_id" dmx-bind:value="user_id">
+        <input type="hidden" name="role" dmx-bind:value="role.value">
+    </dmx-serverconnect>
 </div>
