@@ -2,10 +2,151 @@
   "direct": true,
   "type": "sqlite3",
   "connection": {
-    "filename": "/DB_screening.sqlite3"
+    "filename": "/DB_Baru.sqlite3"
   },
   "schema": {
-    "tables": {},
+    "tables": {
+      "request_form": {
+        "columns": {
+          "request_id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "unique": false,
+              "nullable": false
+            }
+          },
+          "requester_name": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "submit_date": {
+            "db": {
+              "type": "date",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "requesition_type": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "justification": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "job_grade": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "job_description": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "job_title": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "report_to": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "require_date": {
+            "db": {
+              "type": "date",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "status": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true,
+              "default": "Pending"
+            }
+          }
+        },
+        "db": {}
+      },
+      "user": {
+        "columns": {
+          "user_id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "unique": false,
+              "nullable": false
+            }
+          },
+          "name": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "email": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "password": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "role": {
+            "db": {
+              "type": "text",
+              "primary": false,
+              "unique": false,
+              "nullable": true,
+              "default": "Default"
+            }
+          }
+        },
+        "db": {}
+      }
+    },
     "views": {}
   }
 }

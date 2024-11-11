@@ -1,167 +1,81 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="index" appConnect="local" components="{dmxBootstrap5Navigation:{}}" -->
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="index" appConnect="local" components="{dmxBootstrap5Navigation:{},dmxNotifications:{},dmxBrowser:{}}" -->
+<div is="dmx-browser" id="browser1"></div>
+<dmx-notifications id="notifies1"></dmx-notifications>
 
 <meta name="ac:route" content="/" />
 
-<div class="container-fluid p-0">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div class="container">
-            <a href="#" class="navbar-brand fs-3 text-xl-start">Screening System</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Signup</button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Section with Features and Login Form -->
-    <!-- Main Section with Features and Login Form -->
-    <section class="d-flex flex-column flex-lg-row text-white py-5 bg-primary" style="background-image: linear-gradient(to bottom right, #007bff, #6610f2);">
-        <div class="container d-flex flex-column flex-lg-row align-items-center">
-            <!-- Left Side: Features Section -->
-            <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
-                <h2 class="fw-bold mb-4">About Screening System</h2>
-                <p>The Screening System is designed to simplify and expedite the candidate screening process, offering tools for Business Units and Managers to manage, track, and review applications effectively. This system is built for internal use to streamline the workflow and enhance operational efficiency.</p>
-
-                <!-- Features List -->
-                <div class="mt-4">
-                    <div class="d-flex align-items-start mb-3">
-                        <i class="fas fa-users fa-2x me-3"></i>
-                        <div>
-                            <h5 class="mb-0">User Management</h5>
-                            <p class="mb-0">Effortlessly manage user roles and permissions for Business Units, Managers, and Candidates.</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-start mb-3">
-                        <i class="fas fa-tasks fa-2x me-3"></i>
-                        <div>
-                            <h5 class="mb-0">Task Tracking</h5>
-                            <p class="mb-0">Monitor the progress and status of each screening task in real-time.</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-start">
-                        <i class="fas fa-chart-line fa-2x me-3"></i>
-                        <div>
-                            <h5 class="mb-0">Performance Analytics</h5>
-                            <p class="mb-0">Analyze screening trends and performance metrics to improve process efficiency.</p>
-                        </div>
-                    </div>
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center bg-light">
+    <!-- Login Form Section -->
+    <div class="col-lg-4 p-4 rounded shadow-sm bg-white">
+        <h2 class="text-center mb-4 text-primary">HR Portal</h2>
+        <form id="loginIndex" is="dmx-serverconnect-form" method="post" action="/api/action/loginUser" dmx-on:unauthorized="notifies1.warning('Unauthorized!')" dmx-on:success="browser1.goto('/bu_dashboard')">
+            <!-- Email Field with Icon -->
+            <div class="form-group mb-3">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
             </div>
 
-            <!-- Right Side: Login Form -->
-            <div class="col-lg-6 mt-5 mt-lg-0 bg-light p-4 rounded shadow-sm">
-                <h2 class="text-center mb-4 text-body">Welcome Back</h2>
-                <p class="text-center text-muted mb-4">Login to your account</p>
-
-                <!-- Login Form -->
-                <form id="loginForm">
-                    <!-- Role Selection with Icon -->
-                    <div class="form-group mb-3">
-                        <label for="role" class="form-label text-dark">Role</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-                            <select id="role" class="form-select" required>
-                                <option value="BU">Business Unit</option>
-                                <option value="Manager">Manager</option>
-                                <option value="Candidate">Candidate</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Email Field with Icon -->
-                    <div class="form-group mb-3">
-                        <label for="email" class="form-label text-dark">Email</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-                        </div>
-                    </div>
-
-                    <!-- Password Field with Icon -->
-                    <div class="form-group mb-4">
-                        <label for="password" class="form-label text-dark">Password</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                            <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
-                        </div>
-                    </div>
-
-                    <!-- Login Button -->
-                    <button type="submit" class="btn btn-primary w-100 py-2">Login</button>
-                </form>
+            <!-- Password Field with Icon -->
+            <div class="form-group mb-4">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
             </div>
-        </div>
-    </section>
 
+            <!-- Login Button -->
+            <button type="submit" class="btn btn-primary w-100 py-2">Login</button>
+        </form>
 
-    <!-- Footer -->
-</div>
+        <!-- Link to Signup Modal -->
+        <p class="text-center text-muted mt-3">No account? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Sign Up</a></p>
+    </div>
 
-<!-- Register Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body p-4">
-                <h2 class="text-center mb-4">Create Your Account</h2>
-                <p class="text-center text-muted mb-4">Please fill in the details to register.</p>
-                <!-- Register Form -->
-                <form id="registerForm">
-                    <!-- Role Selection with Icon -->
-                    <div class="form-group mb-3">
-                        <label for="role" class="form-label">Role</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-                            <select id="roll1" class="form-select" required>
-                                <option value="BU">Business Unit</option>
-                                <option value="Manager">Manager</option>
-                                <option value="Candidate">Candidate</option>
-                            </select>
+    <!-- Register Modal (Simplified) -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body p-4">
+                    <h4 class="text-center mb-4">Create Account</h4>
+                    <form action="/api/action/registerUser" method="post" dmx-on:success="notifies1.success('Register completed! Please login.');registerIndex.reset()" is="dmx-serverconnect-form" id="registerIndex">
+                        <!-- Name -->
+                        <div class="form-group mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Name with Icon -->
-                    <div class="form-group mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        <!-- Email -->
+                        <div class="form-group mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" id="emails" name="email" class="form-control" placeholder="Email" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Email with Icon -->
-                    <div class="form-group mb-3">
-                        <label for="email1" class="form-label">Email</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                            <input type="email" id="email1" class="form-control" placeholder="Enter your email" required>
+                        <!-- Password -->
+                        <div class="form-group mb-4">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" id="password1" name="password" class="form-control" placeholder="Password" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Password with Icon -->
-                    <div class="form-group mb-4">
-                        <label for="password1" class="form-label">Password</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                            <input type="password" id="password1" class="form-control" placeholder="Enter your password" required>
+                        <!-- Confirm Password -->
+                        <div class="form-group mb-4">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" id="password2" class="form-control" placeholder="Confirm Password" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Confirm Password with Icon -->
-                    <div class="form-group mb-4">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
-                        </div>
-                    </div>
-
-                    <!-- Register Button -->
-                    <button type="submit" class="btn btn-primary w-100 py-2">Create Account</button>
-                    <p class="text-center text-muted mt-3">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a></p>
-                </form>
+                        <!-- Register Button -->
+                        <button type="submit" class="btn btn-primary w-100 py-2">Register</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

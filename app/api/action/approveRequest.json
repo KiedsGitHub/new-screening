@@ -1,0 +1,36 @@
+{
+  "name": "update_status",
+  "module": "dbupdater",
+  "action": "update",
+  "options": {
+    "connection": "db",
+    "sql": {
+      "type": "update",
+      "table": "request_form",
+      "condition": "request_id = :P1",
+      "values": [
+        {
+          "table": "request_form",
+          "column": "status",
+          "type": "text",
+          "value": "Approved"
+        }
+      ],
+      "params": [
+        {
+          "name": "P1",
+          "type": "number",
+          "value": "{{request_id}}"
+        }
+      ],
+      "returning": "request_id",
+      "query": "update `request_form` set `status` = ? where `request_id` = ? returning `request_id`"
+    }
+  },
+  "meta": [
+    {
+      "name": "affected",
+      "type": "number"
+    }
+  ]
+}

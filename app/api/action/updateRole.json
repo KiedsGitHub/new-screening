@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "text",
+        "name": "role"
+      },
+      {
+        "type": "number",
+        "name": "user_id"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "updateRole",
+      "module": "dbupdater",
+      "action": "update",
+      "options": {
+        "connection": "db",
+        "table": "user",
+        "columns": {
+          "role": "{{$_POST.role}}"
+        },
+        "wheres": {
+          "condition": "AND",
+          "rules": [
+            {
+              "id": "user_id",
+              "field": "user_id",
+              "type": "double",
+              "operator": "equal",
+              "value": "{{$_POST.user_id}}"
+            }
+          ]
+        },
+        "sql": {
+          "type": "update",
+          "values": [
+            {
+              "table": "user",
+              "column": "role",
+              "type": "text",
+              "value": "{{$_POST.role}}",
+              "recid": 1
+            }
+          ],
+          "table": "user",
+          "wheres": {
+            "condition": "AND",
+            "rules": [
+              {
+                "id": "user_id",
+                "type": "double",
+                "operator": "equal",
+                "value": "{{$_POST.user_id}}",
+                "data": {
+                  "column": "user_id"
+                },
+                "operation": "="
+              }
+            ]
+          },
+          "returning": "user_id",
+          "query": "update `user` set `role` = ? where `user_id` = ? returning `user_id`",
+          "params": [
+            {
+              "name": ":P1",
+              "type": "expression",
+              "value": "{{$_POST.role}}",
+              "test": ""
+            },
+            {
+              "operator": "equal",
+              "type": "expression",
+              "name": ":P2",
+              "value": "{{$_POST.user_id}}",
+              "test": ""
+            }
+          ]
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "name": "affected",
+          "type": "number"
+        }
+      ]
+    }
+  }
+}
