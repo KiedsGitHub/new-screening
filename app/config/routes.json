@@ -40,6 +40,11 @@
       "path": "/update_iv_time",
       "page": "update_iv_time",
       "layout": "main"
+    },
+    {
+      "path": "/hr_verify",
+      "page": "hr_verify",
+      "layout": "main"
     }
   ]
 }
