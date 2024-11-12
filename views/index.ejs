@@ -8,7 +8,7 @@
     <!-- Login Form Section -->
     <div class="col-lg-4 p-4 rounded shadow-sm bg-white">
         <h2 class="text-center mb-4 text-primary">HR Portal</h2>
-        <form id="loginIndex" is="dmx-serverconnect-form" method="post" action="/api/action/loginUser" dmx-on:unauthorized="notifies1.warning('Unauthorized!')" dmx-on:success="browser1.goto('/bu_dashboard')">
+        <form id="loginIndex" is="dmx-serverconnect-form" method="post" action="/api/action/loginUser" dmx-on:unauthorized="notifies1.warning('Unauthorized!')" dmx-on:success="browser1.goto('/menu',true,'Menu')">
             <!-- Email Field with Icon -->
             <div class="form-group mb-3">
                 <div class="input-group">

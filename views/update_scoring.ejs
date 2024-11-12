@@ -1,0 +1,91 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="update_scoring" appConnect="local" -->
+
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="updateScoringPage" appConnect="local" components="{dmxNotifications:{}}" -->
+<meta name="ac:route" content="/update_scoring">
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Update Candidate Scoring n Decision</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form id="updateScoringForm">
+                <!-- Candidate Info Section -->
+                <div class="mb-4">
+                    <h5 class="text-secondary">Candidate Information</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="candidateName" class="form-label">Candidate Name</label>
+                            <input type="text" class="form-control" id="candidateName" disabled="" placeholder="Enter candidate name">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="jobPosition" class="form-label">Job Position</label>
+                            <input type="text" class="form-control" id="jobPosition" placeholder="eg: Software Developer" disabled="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scoring Section -->
+                <div class="mb-4">
+                    <h5 class="text-secondary">Scoring</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="technicalScore" class="form-label">Technical Skills</label>
+                            <input type="number" class="form-control" id="technicalScore" placeholder="Enter score (1-100)">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="communicationScore" class="form-label">Communication Skills</label>
+                            <input type="number" class="form-control" id="communicationScore" placeholder="Enter score (1-100)">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="experienceScore" class="form-label">Relevant Experience</label>
+                            <input type="number" class="form-control" id="experienceScore" placeholder="Enter score (1-100)">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="overallScore" class="form-label">Overall Score</label>
+                            <input type="number" class="form-control" id="overallScore" placeholder="Calculated based on criteria" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decision Section -->
+                <div class="mb-4">
+                    <h5 class="text-secondary">Decision</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="decision" class="form-label">Select Decision</label>
+                            <select class="form-select" id="decision">
+                                <option value="" disabled selected>Select decision</option>
+                                <option value="Proceed to Interview">Proceed to Interview</option>
+                                <option value="Reject">Reject</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="comments" class="form-label">Comments</label>
+                            <textarea class="form-control" id="comments" rows="3" placeholder="Add comments..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary px-4">Update Scoring n Decision</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Additional JavaScript to Calculate Overall Score -->
+<script>
+    document.getElementById('technicalScore').addEventListener('input', calculateOverallScore);
+    document.getElementById('communicationScore').addEventListener('input', calculateOverallScore);
+    document.getElementById('experienceScore').addEventListener('input', calculateOverallScore);
+
+    function calculateOverallScore() {
+        const technicalScore = parseFloat(document.getElementById('technicalScore').value) || 0;
+        const communicationScore = parseFloat(document.getElementById('communicationScore').value) || 0;
+        const experienceScore = parseFloat(document.getElementById('experienceScore').value) || 0;
+
+        const overallScore = ((technicalScore + communicationScore + experienceScore) / 3).toFixed(2);
+        document.getElementById('overallScore').value = overallScore;
+    }
+</script>

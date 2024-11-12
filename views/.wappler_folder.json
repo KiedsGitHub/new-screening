@@ -31,7 +31,23 @@
     "layoutPage": "kosong",
     "description": ""
   },
-  "test_hr_edit.ejs": {
+  "menu.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "hr_edit.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "update_scoring.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "update_iv_time.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "hr_verify.ejs": {
     "layoutPage": "main",
     "description": ""
   }

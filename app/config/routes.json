@@ -22,8 +22,28 @@
       "layout": "main"
     },
     {
-      "path": "/test_hr_edit",
-      "page": "test_hr_edit",
+      "path": "/hr_edit",
+      "page": "hr_edit",
+      "layout": "main"
+    },
+    {
+      "path": "/menu",
+      "page": "menu",
+      "layout": "main"
+    },
+    {
+      "path": "/update_scoring",
+      "page": "update_scoring",
+      "layout": "main"
+    },
+    {
+      "path": "/update_iv_time",
+      "page": "update_iv_time",
+      "layout": "main"
+    },
+    {
+      "path": "/hr_verify",
+      "page": "hr_verify",
       "layout": "main"
     }
   ]
