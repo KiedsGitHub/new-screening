@@ -50,5 +50,9 @@
   "hr_verify.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "danial-asri.ejs": {
+    "layoutPage": "kosong",
+    "description": ""
   }
 }
