@@ -45,6 +45,11 @@
       "path": "/hr_verify",
       "page": "hr_verify",
       "layout": "main"
+    },
+    {
+      "path": "/danial-asri",
+      "page": "danial-asri",
+      "layout": "kosong"
     }
   ]
 }
